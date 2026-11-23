@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>FLyCi // машинка</title>
+  <title>FLyCi // night ride</title>
   <meta name="theme-color" content="#151314" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23151314'/%3E%3Crect x='2' y='2' width='28' height='28' rx='5' fill='none' stroke='%23d4a35d' stroke-width='1.5'/%3E%3Ccircle cx='11' cy='16' r='2.5' fill='%23e8c782'/%3E%3Ccircle cx='21' cy='16' r='2.5' fill='%23e8c782'/%3E%3Cpath d='M13.5 21h5' stroke='%23a69a8d' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="style.css" />
@@ -11,35 +11,35 @@
 <body>
   <div id="app" class="app-shell">
     <!-- 2.5D Rainy City Canvas -->
-    <canvas id="city-canvas" aria-label="Интерактивная 2.5D карта дождливого города"></canvas>
+    <canvas id="city-canvas" aria-label="Interactive 2.5D rainy night city map"></canvas>
 
     <!-- Soft Atmospheric Rain Vignette -->
     <div class="rain-vignette" aria-hidden="true"></div>
 
     <!-- Top HUD -->
     <header class="hud-top">
-      <div class="hud-group hud-explored" title="Открытые районы города">
+      <div class="hud-group hud-explored" title="Discovered city districts">
         <span class="hud-tag">ZONES</span>
         <div id="hud-zone-dots" class="zone-dots"></div>
         <span id="hud-zone-count" class="hud-count">0/4</span>
       </div>
 
       <div class="hud-center-wrap">
-        <button id="hud-zone-pill" type="button" class="hud-pill" title="Открыть карточку текущего района">
+        <button id="hud-zone-pill" type="button" class="hud-pill" title="Open current district card">
           <span class="pill-dot"></span>
           <span id="hud-zone-name">PLAZA // 00</span>
         </button>
       </div>
 
       <div class="hud-right">
-        <button id="btn-lights" type="button" class="hud-icon-btn on" title="Режим фар: Ближний / Дальний / Выкл (L)">
+        <button id="btn-lights" type="button" class="hud-icon-btn on" title="Headlights: Low / High / Off (L)">
           <span id="lights-icon">💡</span>
-          <span id="lights-label" class="hide-mobile">Ближний</span>
+          <span id="lights-label" class="hide-mobile">Low</span>
         </button>
 
-        <button id="audio-toggle" type="button" class="hud-icon-btn" title="Включить или выключить дождь и музыку">
+        <button id="audio-toggle" type="button" class="hud-icon-btn" title="Toggle rain and ambient audio">
           <span id="audio-icon">🔇</span>
-          <span class="hide-mobile">Дождь</span>
+          <span class="hide-mobile">Rain</span>
         </button>
 
         <div class="hud-speed">
@@ -49,7 +49,7 @@
       </div>
     </header>
 
-    <!-- District Info Overlay Panel (rdev404 Style with Corner Brackets) -->
+    <!-- District Info Overlay Panel -->
     <aside id="zone-panel" class="zone-panel hidden" aria-live="polite">
       <span class="bracket b-tl"></span>
       <span class="bracket b-tr"></span>
@@ -61,7 +61,7 @@
           <span id="panel-badge" class="panel-badge">DISTRICT</span>
           <h2 id="panel-title" class="panel-title">SECTOR</h2>
         </div>
-        <button id="panel-close" type="button" class="panel-close" aria-label="Свернуть панель">✕</button>
+        <button id="panel-close" type="button" class="panel-close" aria-label="Close panel">✕</button>
       </div>
 
       <div id="panel-body" class="panel-body"></div>
@@ -70,32 +70,32 @@
     <!-- Bottom-Left Controls: Desktop Hint + Mobile Touch Joystick & Action Buttons -->
     <div class="hud-bottom-left">
       <div class="touch-controls">
-        <div id="joystick-pad" class="joystick-pad" aria-label="Джойстик управления">
+        <div id="joystick-pad" class="joystick-pad" aria-label="Steering joystick">
           <div id="joystick-knob" class="joystick-knob"></div>
         </div>
         <div class="action-stack">
-          <button id="btn-boost" type="button" class="action-btn boost-btn" title="Ускорение и дрифт (Shift)">
-            ⚡ БУСТ
+          <button id="btn-boost" type="button" class="action-btn boost-btn" title="Boost and drift (Shift)">
+            ⚡ BOOST
           </button>
-          <button id="btn-horn" type="button" class="action-btn horn-btn" title="Гудок + ориентир к районам (Пробел)">
-            📯 СИГНАЛ
+          <button id="btn-horn" type="button" class="action-btn horn-btn" title="Horn + ping undiscovered districts (Space)">
+            📯 HORN
           </button>
         </div>
       </div>
       <div class="key-hints">
-        <span><kbd>WASD</kbd> езда</span>
-        <span><kbd>Shift</kbd> буст</span>
-        <span><kbd>Space</kbd> сигнал</span>
-        <span><kbd>L</kbd> фары</span>
+        <span><kbd>WASD</kbd> drive</span>
+        <span><kbd>Shift</kbd> boost</span>
+        <span><kbd>Space</kbd> horn</span>
+        <span><kbd>L</kbd> lights</span>
       </div>
     </div>
 
     <!-- Discrete Secret Track Bar -->
     <div id="secret-track-bar" class="secret-track-bar hidden">
-      <button id="secret-track-toggle" type="button" class="secret-track-btn" title="Пауза / Продолжить">⏸</button>
+      <button id="secret-track-toggle" type="button" class="secret-track-btn" title="Pause / Play">⏸</button>
       <span id="secret-track-title" class="secret-track-title">♪ Lil Peep — ghost girl</span>
-      <input id="secret-track-vol" class="secret-track-vol" type="range" min="0" max="100" value="22" title="Громкость трека" />
-      <a id="secret-track-link" class="secret-track-link" href="https://www.youtube.com/watch?v=1Woqr8nhWrY" target="_blank" rel="noopener noreferrer" title="Открыть на YouTube">↗</a>
+      <input id="secret-track-vol" class="secret-track-vol" type="range" min="0" max="100" value="22" title="Track volume" />
+      <a id="secret-track-link" class="secret-track-link" href="https://www.youtube.com/watch?v=1Woqr8nhWrY" target="_blank" rel="noopener noreferrer" title="Open on YouTube">↗</a>
     </div>
     <div id="yt-secret-host" class="yt-secret-host" aria-hidden="true"></div>
 
@@ -119,19 +119,19 @@
           <span class="chip c-vibes">← VIBES</span>
           <span class="chip c-setup">→ SETUP</span>
           <span class="chip c-contact">↓ CONTACT</span>
-          <span class="chip c-secret">🔒 СЕКРЕТ (4/4)</span>
+          <span class="chip c-secret">🔒 SECRET (4/4)</span>
         </div>
 
         <div class="intro-actions">
-          <button id="intro-start-btn" type="button" class="intro-start-btn">ЗАВЕСТИ МАШИНУ →</button>
+          <button id="intro-start-btn" type="button" class="intro-start-btn">START ENGINE →</button>
           <label class="intro-audio-opt">
             <input id="intro-audio-check" type="checkbox" checked />
-            <span>Включить шум дождя и атмосферу</span>
+            <span>Enable rain audio and ambiance</span>
           </label>
         </div>
 
         <div class="intro-foot">
-          Управление: <b>WASD / Стрелки</b>, <b>Джойстик</b> на телефоне · <b>Space</b> (сигнал) покажет ориентиры к районам
+          Controls: <b>WASD / Arrows</b>, <b>Joystick</b> on mobile · <b>Space</b> (horn) pings nearby districts
         </div>
       </div>
     </div>

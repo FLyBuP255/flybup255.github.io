@@ -609,13 +609,13 @@ body {
 .touch-controls {
   display: flex;
   align-items: flex-end;
-  gap: 10px;
+  gap: 12px;
 }
 
 .joystick-pad {
   position: relative;
-  width: 84px;
-  height: 84px;
+  width: 126px;
+  height: 126px;
   border-radius: 50%;
   background: var(--panel);
   box-shadow: inset 0 1px 0 rgba(235, 222, 200, 0.06);
@@ -627,8 +627,8 @@ body {
 }
 
 .joystick-knob {
-  width: 34px;
-  height: 34px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: #cfa264;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
@@ -755,7 +755,7 @@ body {
 /* ==================== TOAST & INTRO ==================== */
 .hud-toast {
   position: absolute;
-  bottom: 148px;
+  bottom: 184px;
   left: 50%;
   transform: translateX(-50%);
   max-width: calc(100vw - 24px);
@@ -908,14 +908,21 @@ body {
     left: 10px;
     right: 10px;
     width: auto;
-    max-height: calc(100vh - 236px);
+    max-height: calc(100vh - 252px);
   }
   .hud-bottom-left {
     bottom: 10px;
     left: 10px;
   }
+  .action-btn {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+  .hud-toast {
+    bottom: 150px;
+  }
   .secret-track-bar {
-    bottom: 108px;
+    bottom: 148px;
     right: 10px;
     padding: 5px 7px;
     gap: 6px;
@@ -947,8 +954,16 @@ body {
     max-height: calc(100vh - 164px);
     padding: 10px;
   }
+  .joystick-pad {
+    width: 106px;
+    height: 106px;
+  }
+  .joystick-knob {
+    width: 42px;
+    height: 42px;
+  }
   .hud-toast {
-    bottom: 112px;
+    bottom: 128px;
   }
   .key-hints {
     display: none;
