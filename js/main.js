@@ -73,7 +73,7 @@
     },
     onCatMeow: () => {
       Audio.playMeow();
-      showToast("🐈 Мяу! Рыжий кот под навесом CAFE");
+      showToast("🐈 Meow! Ginger cat under the CAFE awning");
     }
   });
 
@@ -136,9 +136,9 @@
   function syncLightsBtn() {
     const mode = City.getHeadlightMode();
     const iconMap = { low: "💡", high: "🔆", off: "🌑" };
-    const labelMap = { low: "Ближний", high: "Дальний", off: "Выкл" };
+    const labelMap = { low: "Low", high: "High", off: "Off" };
     ui.lightsIcon.textContent = iconMap[mode] || "💡";
-    ui.lightsLabel.textContent = labelMap[mode] || "Ближний";
+    ui.lightsLabel.textContent = labelMap[mode] || "Low";
     ui.lightsBtn.classList.toggle("on", mode !== "off");
   }
 
@@ -147,11 +147,11 @@
     Audio.playLightClick();
     syncLightsBtn();
     const toastMap = {
-      low: "💡 Ближний свет фар",
-      high: "🔆 Дальний свет фар",
-      off: "🌑 Фары выключены"
+      low: "💡 Low beam headlights",
+      high: "🔆 High beam headlights",
+      off: "🌑 Headlights off"
     };
-    showToast(toastMap[mode] || "💡 Фары");
+    showToast(toastMap[mode] || "💡 Headlights");
   }
 
   window.addEventListener("keydown", (e) => {
@@ -250,7 +250,7 @@
   ui.hornBtn.addEventListener("click", () => {
     honkAndPing();
     ui.hornBtn.blur();
-    showToast("📯 Би-бип! Отмечены неоткрытые районы");
+    showToast("📯 Beep! Undiscovered districts pinged");
   });
 
   const SecretTrack = (function () {
@@ -549,7 +549,7 @@
               <span class="track-title">${t.title}</span>
               <span class="track-sub">${t.bpm} · ${t.genre}</span>
             </div>
-            <button type="button" class="track-play-btn">${playing ? "■ Выкл" : "▶ Вкл"}</button>
+            <button type="button" class="track-play-btn">${playing ? "■ Stop" : "▶ Play"}</button>
           </div>
         `;
       }).join("");
@@ -592,7 +592,7 @@
         btn.onclick = () => {
           const val = btn.dataset.copy;
           if (navigator.clipboard) navigator.clipboard.writeText(val).catch(() => {});
-          showToast(`Скопировано: ${val}`);
+          showToast(`Copied: ${val}`);
         };
       });
     } else if (zId === "setup") {
@@ -632,7 +632,7 @@
               <span class="car-choice-name">${c.name}${active ? " ✓" : ""}</span>
             </div>
             <div class="car-choice-desc">${c.desc}</div>
-            <div class="car-choice-stats">СКОР ${Math.round(c.maxSpd * 0.36)} · МАССА ${c.mass}x</div>
+            <div class="car-choice-stats">SPD ${Math.round(c.maxSpd * 0.36)} · MASS ${c.mass}x</div>
           </button>
         `;
       }).join("");
@@ -648,7 +648,7 @@
           state.carId = spec.id;
           City.setPlayerCar(spec);
           Audio.playLightClick();
-          showToast(`🚗 Выбран авто: ${spec.name}`);
+          showToast(`🚗 Selected car: ${spec.name}`);
           renderZonePanel();
         };
       });
@@ -772,7 +772,7 @@
         if (zone === "secret") {
           City.setOverdrive(true);
           if (firstVisit) {
-            showToast("★ СЕКРЕТ ОТКРЫТ! Играет Lil Peep — ghost girl", 4000);
+            showToast("★ SECRET UNLOCKED! Playing Lil Peep — ghost girl", 4000);
             SecretTrack.start();
           }
         }
@@ -781,7 +781,7 @@
           state.secretUnlocked = true;
           City.setSecretUnlocked(true);
           Audio.playZoneEnter(true);
-          showToast("★ Все 4 района открыты! На северо-востоке зажёгся СЕКРЕТ (жми Space)", 4500);
+          showToast("★ All 4 districts discovered! The SECRET lit up in the northeast (press Space)", 4500);
         } else {
           Audio.playZoneEnter(zone === "secret");
         }

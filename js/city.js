@@ -17,8 +17,8 @@ window.NFC_CITY.City = (function () {
     vibes:   { id: "vibes",   x: -860, y: 0,    r: 92, color: "#a87278", label: "VIBES" },
     contact: { id: "contact", x: 0,    y: 860,  r: 92, color: "#7c8c6e", label: "CONTACT" },
     setup:   { id: "setup",   x: 860,  y: 0,    r: 92, color: "#b87c5d", label: "SETUP" },
-    secret:  { id: "secret",  x: 830,  y: -830, r: 82, color: "#e8c782", label: "ТИХИЙ МАЯК" },
-    garage:  { id: "garage",  x: 380,  y: 380,  r: 52, color: "#a89d90", label: "ГАРАЖ" }
+    secret:  { id: "secret",  x: 830,  y: -830, r: 82, color: "#e8c782", label: "QUIET LIGHTHOUSE" },
+    garage:  { id: "garage",  x: 380,  y: 380,  r: 52, color: "#a89d90", label: "GARAGE" }
   };
   const ZONE_LIST = Object.values(ZONES);
 
@@ -1652,7 +1652,7 @@ window.NFC_CITY.City = (function () {
 
   let playerSpec = {
     id: "sedan",
-    name: "Ночной Седан",
+    name: "Night Sedan",
     len: 28,
     wid: 16,
     mass: 1.25,
@@ -3626,10 +3626,10 @@ window.NFC_CITY.City = (function () {
     ctx.textAlign = "center";
     if (unlocked) {
       ctx.fillStyle = discovered ? "#ebd094" : "rgba(235, 208, 148, 0.90)";
-      ctx.fillText(discovered ? "★ ТИХИЙ МАЯК" : "★ МАЯК ОТКРЫТ", sx, sy + 64);
+      ctx.fillText(discovered ? "★ QUIET LIGHTHOUSE" : "★ LIGHTHOUSE OPEN", sx, sy + 64);
     } else {
       ctx.fillStyle = "rgba(150, 158, 168, 0.62)";
-      ctx.fillText("🔒 ОТКРОЙ 4/4 РАЙОНОВ", sx, sy + 64);
+      ctx.fillText("🔒 UNLOCK 4/4 ZONES", sx, sy + 64);
     }
   }
 
@@ -4399,7 +4399,7 @@ window.NFC_CITY.City = (function () {
       ctx.fillStyle = "#ebd094";
       ctx.font = "bold 9px monospace";
       ctx.textAlign = "center";
-      ctx.fillText("мяу", cat.x, cat.y - 8);
+      ctx.fillText("meow", cat.x, cat.y - 8);
       ctx.restore();
     }
   }

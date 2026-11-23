@@ -1,56 +1,56 @@
 window.NFC_CITY = window.NFC_CITY || {};
 
 /**
- * ЕДИНЫЙ КОНФИГ ДОЖДЛИВОГО ГОРОДА
- * Здесь собраны все подписи районов, тексты, ссылки, звуковые атмосферы и секрет.
+ * Rainy-night interactive city config:
+ * District labels, bio files, audio presets, secret track & garage specs.
  */
 window.NFC_CITY.CONFIG = {
   brand: {
     tag: "FLYCI // RAINY NIGHT",
     title: "FLyCi",
-    subtitle: "машинка",
-    startButton: "ЗАВЕСТИ МАШИНУ →"
+    subtitle: "night ride",
+    startButton: "START ENGINE →"
   },
 
   districts: {
     about: {
       id: "about",
-      badge: "DISTRICT 01 // ЦЕНТР",
+      badge: "DISTRICT 01 // CENTER",
       title: "ABOUT_ME.EXE",
-      pill: "ABOUT // ЦЕНТР",
+      pill: "ABOUT // CENTER",
       color: "#d4a35d",
       initials: "0_0",
       name: "sweden(0_0)",
       tagline: "Arch Linux · Dota 2 · Rainy Night",
       files: {
         "bio.md": "// bio.md\nchill guy",
-        "vibe.md": "// vibe.md\nСпокойная музыка, котики, kotl и пасмурные вечера без лишнего шума.",
-        "city.md": "// city.md\nИнтерактивный город FLyCi — можно кататься, менять авто в гараже и искать секрет."
+        "vibe.md": "// vibe.md\nChill music, cats, kotl, and overcast evenings without the noise.",
+        "city.md": "// city.md\nInteractive FLyCi city — cruise around, swap cars in the garage, and hunt down the secret."
       }
     },
 
     vibes: {
       id: "vibes",
-      badge: "DISTRICT 02 // СТАНЦИЯ",
-      title: "VIBES // АТМОСФЕРА",
-      pill: "VIBES // СТАНЦИЯ",
+      badge: "DISTRICT 02 // STATION",
+      title: "VIBES // ATMOSPHERE",
+      pill: "VIBES // STATION",
       color: "#a87278",
-      description: "Выбери звуковой фон поездки — дождь, пиано или тихую трассу.",
+      description: "Pick your rainy-night soundtrack — pure rain, soft piano, or quiet highway.",
       tracks: [
-        { title: "Только ночной дождь", bpm: "RAIN", genre: "Шум дождя и редкий гром", preset: "rain_only" },
-        { title: "Тёплое электропиано", bpm: "70 BPM", genre: "Спокойный Lo-Fi под дождём", preset: "lofi_piano" },
-        { title: "Тихая ночная трасса", bpm: "AMBIENT", genre: "Мягкий атмосферный фон", preset: "night_ambient" }
+        { title: "Night Rain Only", bpm: "RAIN", genre: "Steady rain & distant thunder", preset: "rain_only" },
+        { title: "Warm Electric Piano", bpm: "70 BPM", genre: "Chill Lo-Fi in the rain", preset: "lofi_piano" },
+        { title: "Quiet Night Highway", bpm: "AMBIENT", genre: "Soft atmospheric drone", preset: "night_ambient" }
       ],
-      likes: ["kotl", "rain", "lilp", "7.36", "kotiki"]
+      likes: ["kotl", "rain", "lilp", "7.36", "cats"]
     },
 
     contact: {
       id: "contact",
-      badge: "DISTRICT 03 // НАБЕРЕЖНАЯ",
-      title: "CONTACT // СВЯЗЬ",
-      pill: "CONTACT // НАБЕРЕЖНАЯ",
+      badge: "DISTRICT 03 // HARBOR",
+      title: "CONTACT // LINKS",
+      pill: "CONTACT // HARBOR",
       color: "#7c8c6e",
-      description: "Профиль Steam — жми на карточку, чтобы открыть.",
+      description: "Steam profile — tap the card to open.",
       links: [
         { label: "Steam", handle: "sweden(0 0)", url: "https://steamcommunity.com/profiles/76561199152566558" }
       ]
@@ -58,26 +58,26 @@ window.NFC_CITY.CONFIG = {
 
     setup: {
       id: "setup",
-      badge: "DISTRICT 04 // КВАРТАЛ",
-      title: "SETUP // ДЕТАЛИ",
-      pill: "SETUP // КВАРТАЛ",
+      badge: "DISTRICT 04 // QUARTER",
+      title: "SETUP // SPECS",
+      pill: "SETUP // QUARTER",
       color: "#b87c5d",
       tabs: [
         {
           id: "devices",
-          label: "Девайсы",
+          label: "Devices",
           items: [
-            { k: "Ноутбук", v: "Redmi Book 14 (TM2205)" },
-            { k: "Телефон", v: "Samsung S21" }
+            { k: "Laptop", v: "Redmi Book 14 (TM2205)" },
+            { k: "Phone", v: "Samsung S21" }
           ]
         },
         {
           id: "os",
-          label: "Система",
+          label: "System",
           items: [
-            { k: "ОС", v: "Arch Linux" },
-            { k: "Окна", v: "Hyprland (Wayland)" },
-            { k: "Вход", v: "SDDM + hyprlock" }
+            { k: "OS", v: "Arch Linux" },
+            { k: "WM", v: "Hyprland (Wayland)" },
+            { k: "Login", v: "SDDM + hyprlock" }
           ]
         }
       ]
@@ -86,12 +86,12 @@ window.NFC_CITY.CONFIG = {
     secret: {
       id: "secret",
       badge: "SECRET ALLEY // 04",
-      title: "ТИХИЙ МАЯК (СЕКРЕТ)",
-      pill: "★ ТИХИЙ МАЯК",
+      title: "QUIET LIGHTHOUSE (SECRET)",
+      pill: "★ QUIET LIGHTHOUSE",
       color: "#e8c782",
-      description: "Все 4 района открыты — во дворе за кольцом зажёгся тихий маяк.",
-      reward: "Включены тёплые золотые фары и тихо играет: Lil Peep — ghost girl",
-      note: "Пауза и громкость трека появились в правом нижнем углу. (При желании можно также положить свой audio/ghost-girl.mp3 для офлайн-воспроизведения.)",
+      description: "All 4 districts discovered — the quiet lighthouse beyond the ring has lit up.",
+      reward: "Warm golden headlights enabled · now playing: Lil Peep — ghost girl",
+      note: "Pause and volume controls appeared in the bottom-right corner.",
       track: {
         title: "Lil Peep — ghost girl",
         localSrc: "audio/ghost-girl.mp3",
@@ -104,15 +104,15 @@ window.NFC_CITY.CONFIG = {
     garage: {
       id: "garage",
       badge: "GARAGE // SE-02",
-      title: "ГАРАЖ // ВЫБОР АВТО",
-      pill: "GARAGE // АВТО",
+      title: "GARAGE // SELECT CAR",
+      pill: "GARAGE // CARS",
       color: "#a89d90",
-      description: "Тёплый сухой бокс во внутреннем дворе: шум дождя приглушён крышей. Выбери машину под настроение поездки.",
+      description: "A warm dry bay inside the courtyard where the roof muffles the rain. Pick a car for the mood.",
       cars: [
         {
           id: "sedan",
-          name: "Ночной Седан",
-          desc: "Сбалансированный графитовый седан — комфортный и манёвренный.",
+          name: "Night Sedan",
+          desc: "Balanced graphite sedan — smooth and agile.",
           len: 28,
           wid: 16,
           mass: 1.25,
@@ -123,8 +123,8 @@ window.NFC_CITY.CONFIG = {
         },
         {
           id: "wagon",
-          name: "Универсал",
-          desc: "Тяжёлый оливковый кузов — уверенно толкает поток.",
+          name: "Estate Wagon",
+          desc: "Heavy olive body — pushes through traffic with ease.",
           len: 32,
           wid: 17,
           mass: 1.75,
@@ -135,8 +135,8 @@ window.NFC_CITY.CONFIG = {
         },
         {
           id: "taxi",
-          name: "Ночное Такси",
-          desc: "Пыльно-охристый кузов с шашкой — заметный на плёнке.",
+          name: "Night Taxi",
+          desc: "Dusty ochre cab with roof sign — impossible to miss in the rain.",
           len: 27,
           wid: 15,
           mass: 1.2,
@@ -147,8 +147,8 @@ window.NFC_CITY.CONFIG = {
         },
         {
           id: "coupe",
-          name: "Дождевое Купе",
-          desc: "Бордовое короткое купе — быстрое и резкое в поворотах.",
+          name: "Rain Coupe",
+          desc: "Short burgundy coupe — fast and sharp in the corners.",
           len: 25,
           wid: 15,
           mass: 1.0,
@@ -158,7 +158,7 @@ window.NFC_CITY.CONFIG = {
           taxi: false
         }
       ],
-      note: "Подъезжай в этот двор на юго-востоке в любой момент, чтобы сменить машину."
+      note: "Pull into this southeast courtyard anytime to swap your ride."
     }
   }
 };
